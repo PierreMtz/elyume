@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elyume</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #ffffff;
+            --bg2: #f7f8fc;
+            --bg3: #eef0f8;
+            --text: #0f1117;
+            --muted: #6b7280;
+            --accent: #4f6ef7;
+            --accent2: #7b93ff;
+            --accent3: #e8ecff;
+            --grad: linear-gradient(135deg, #4f6ef7 0%, #a78bfa 100%);
+            --border: rgba(79,110,247,0.12);
+        }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; overflow-x: hidden; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 48px; height: 64px;
+            background: rgba(255,255,255,0); backdrop-filter: blur(0px);
+            transition: all .4s ease;
+            border-bottom: 1px solid transparent;
+        }
+        nav.scrolled {
+            background: rgba(255,255,255,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 1px 24px rgba(79,110,247,0.07);
+        }
+        .nav-logo { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--text); text-decoration: none; }
+        .nav-logo span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 36px; list-style: none; }
+        .nav-links a { color: var(--muted); font-size: 14px; text-decoration: none; transition: color .2s; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta {
+            background: var(--grad); color: #fff; font-size: 13px; font-weight: 600;
+            padding: 10px 22px; border-radius: 980px; text-decoration: none;
+            transition: opacity .2s, transform .2s; box-shadow: 0 4px 16px rgba(79,110,247,0.3);
+        }
+        .nav-cta:hover { opacity: .9; transform: scale(1.03); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            padding: 120px 48px 80px; position: relative; overflow: hidden;
+        }
+        .hero-blob {
+            position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+            width: 900px; height: 700px; pointer-events: none;
+            background: radial-gradient(ellipse at 50% 40%, rgba(79,110,247,0.13) 0%, rgba(167,139,250,0.08) 40%, transparent 70%);
+        }
+        .hero-blob2 {
+            position: absolute; bottom: -100px; right: -200px; pointer-events: none;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(167,139,250,0.1) 0%, transparent 65%);
+        }
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--accent3); border: 1px solid rgba(79,110,247,0.2);
+            color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.6px;
+            text-transform: uppercase; padding: 6px 16px; border-radius: 980px;
+            margin-bottom: 32px;
+        }
+        .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+        .hero h1 {
+            font-size: clamp(38px, 5.5vw, 76px); font-weight: 800;
+            letter-spacing: -2.5px; line-height: 1.05;
+            color: var(--text); margin-bottom: 24px; max-width: 860px;
+        }
+        .hero h1 em {
+            font-style: normal;
+            background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p { font-size: 19px; color: var(--muted); line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+        .btn-primary {
+            background: var(--grad); color: #fff; font-size: 16px; font-weight: 600;
+            padding: 16px 36px; border-radius: 980px; text-decoration: none;
+            transition: all .25s; box-shadow: 0 8px 28px rgba(79,110,247,0.35);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(79,110,247,0.45); }
+        .btn-secondary {
+            background: var(--bg2); color: var(--text);
+            border: 1.5px solid var(--border); font-size: 16px;
+            padding: 16px 36px; border-radius: 980px; text-decoration: none;
+            transition: all .25s;
+        }
+        .btn-secondary:hover { background: var(--accent3); border-color: var(--accent); }
+
+        .hero-stats {
+            display: flex; gap: 60px; margin-top: 80px; padding-top: 48px;
+            border-top: 1px solid rgba(0,0,0,0.07);
+        }
+        .stat { text-align: center; }
+        .stat-num { font-size: 36px; font-weight: 800; letter-spacing: -1px; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+        /* SECTIONS */
+        section { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+        .section-tag { display: inline-block; color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+        .section-title {
+            font-size: clamp(30px, 3.5vw, 50px); font-weight: 800;
+            letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; color: var(--text); max-width: 680px;
+        }
+        .section-sub { font-size: 18px; color: var(--muted); line-height: 1.7; max-width: 580px; margin-bottom: 60px; }
+
+        /* CARDS */
+        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .card {
+            background: var(--bg2); border: 1.5px solid rgba(0,0,0,0.05);
+            border-radius: 20px; padding: 32px;
+            transition: border-color .3s, transform .3s, box-shadow .3s;
+        }
+        .card:hover { border-color: rgba(79,110,247,0.3); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(79,110,247,0.1); }
+        .card-icon {
+            width: 52px; height: 52px; border-radius: 14px;
+            background: var(--accent3); display: flex; align-items: center;
+            justify-content: center; font-size: 24px; margin-bottom: 20px;
+        }
+        .card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+        .card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+        /* TESTIMONIALS */
+        .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .testi {
+            background: var(--bg2); border: 1.5px solid rgba(0,0,0,0.05);
+            border-radius: 20px; padding: 32px;
+            transition: transform .3s, box-shadow .3s;
+        }
+        .testi:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(79,110,247,0.08); }
+        .stars { font-size: 14px; margin-bottom: 16px; letter-spacing: 2px; }
+        .testi-text { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+        .testi-author { display: flex; align-items: center; gap: 12px; }
+        .avatar {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--grad); display: flex; align-items: center;
+            justify-content: center; font-size: 13px; font-weight: 700; color: #fff;
+        }
+        .author-name { font-size: 14px; font-weight: 700; }
+        .author-loc { font-size: 12px; color: var(--muted); }
+
+        /* CTA FINAL */
+        .cta-section { max-width: 1200px; margin: 0 auto; padding: 40px 48px 100px; }
+        .cta-box {
+            background: var(--grad); border-radius: 32px; padding: 80px;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .cta-box::before {
+            content: ''; position: absolute; top: -60px; right: -60px;
+            width: 300px; height: 300px; border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .cta-box h2 { font-size: clamp(26px, 3vw, 42px); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; color: #fff; }
+        .cta-box p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
+        .btn-white {
+            background: #fff; color: var(--accent); font-size: 16px; font-weight: 700;
+            padding: 16px 40px; border-radius: 980px; text-decoration: none;
+            transition: all .25s; display: inline-block;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+        }
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,0.2); }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(0,0,0,0.07); padding: 36px 48px;
+            display: flex; align-items: center; justify-content: space-between;
+            color: var(--muted); font-size: 13px;
+        }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { color: var(--muted); text-decoration: none; transition: color .2s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* ANIMATIONS */
+        .reveal { opacity: 0; transform: translateY(36px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: .1s; }
+        .reveal-delay-2 { transition-delay: .2s; }
+        .reveal-delay-3 { transition-delay: .3s; }
+    </style>
+</head>
+<body>
+
+<nav id="navbar">
+    <a href="#" class="nav-logo">Ely<span>ume</span></a>
+    <ul class="nav-links">
+        <li><a href="#apropos">Notre mission</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#temoignages">Témoignages</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Être rappelé gratuitement</a>
+</nav>
+
+<div class="hero">
+    <div class="hero-blob"></div>
+    <div class="hero-blob2"></div>
+    <div class="hero-tag">Accompagnement & sérénité</div>
+    <h1>Nous gérons tout.<br>Vous vous concentrez<br>sur <em>ce qui compte.</em></h1>
+    <p>Après la perte d'un proche, Elyume prend en charge toutes vos démarches administratives et vous aide à récupérer les fonds auxquels vous avez droit.</p>
+    <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Être rappelé gratuitement</a>
+        <a href="#apropos" class="btn-secondary">Découvrir nos services</a>
+    </div>
+    <div class="hero-stats">
+        <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Familles satisfaites</div></div>
+        <div class="stat"><div class="stat-num">+3 200</div><div class="stat-label">Dossiers traités</div></div>
+        <div class="stat"><div class="stat-num">72h</div><div class="stat-label">Délai de prise en charge</div></div>
+    </div>
+</div>
+
+<section id="apropos">
+    <span class="section-tag reveal">Notre mission</span>
+    <h2 class="section-title reveal reveal-delay-1">Vous n'êtes pas seul face aux démarches</h2>
+    <p class="section-sub reveal reveal-delay-2">La perte d'un proche s'accompagne d'une montagne de démarches complexes. Elyume est là pour tout prendre en charge, avec bienveillance et efficacité.</p>
+    <div class="cards-grid">
+        <div class="card reveal reveal-delay-1">
+            <div class="card-icon">📋</div>
+            <h3>Démarches administratives</h3>
+            <p>Déclaration de décès, clôture de comptes, résiliation de contrats — nous gérons tout à votre place.</p>
+        </div>
+        <div class="card reveal reveal-delay-2">
+            <div class="card-icon">🔍</div>
+            <h3>Recherche d'assurances</h3>
+            <p>Identification et activation de toutes les assurances vie, prévoyance et garanties auxquelles vous avez droit.</p>
+        </div>
+        <div class="card reveal reveal-delay-3">
+            <div class="card-icon">🤝</div>
+            <h3>Accompagnement humain</h3>
+            <p>Un conseiller dédié à vos côtés à chaque étape, disponible et à l'écoute de vos besoins.</p>
+        </div>
+    </div>
+</section>
+
+<section id="temoignages">
+    <span class="section-tag reveal">Témoignages</span>
+    <h2 class="section-title reveal reveal-delay-1">Des familles soulagées, partout en France</h2>
+    <div class="testi-grid">
+        <div class="testi reveal reveal-delay-1">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testi-text">"Après le décès de mon père, je ne savais pas par où commencer. Elyume a tout pris en charge en quelques jours. Un soulagement immense dans une période si difficile."</p>
+            <div class="testi-author"><div class="avatar">ML</div><div><div class="author-name">Marie L.</div><div class="author-loc">Lyon, 2024</div></div></div>
+        </div>
+        <div class="testi reveal reveal-delay-2">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testi-text">"Grâce à Elyume, nous avons récupéré une assurance vie que nous ne savions même pas qu'elle existait. Le service est humain, à l'écoute et vraiment professionnel."</p>
+            <div class="testi-author"><div class="avatar">TB</div><div><div class="author-name">Thomas B.</div><div class="author-loc">Paris, 2024</div></div></div>
+        </div>
+        <div class="testi reveal reveal-delay-3">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testi-text">"Une équipe attentionnée qui nous a accompagnés pas à pas. Toutes les démarches ont été faites en moins de 3 semaines. Je recommande à toute famille dans cette situation."</p>
+            <div class="testi-author"><div class="avatar">SC</div><div><div class="author-name">Sophie C.</div><div class="author-loc">Bordeaux, 2024</div></div></div>
+        </div>
+    </div>
+</section>
+
+<div class="cta-section">
+    <div class="cta-box reveal">
+        <h2>Nous sommes là pour vous</h2>
+        <p>Un premier échange gratuit et sans engagement pour vous expliquer comment nous pouvons vous aider.</p>
+        <a href="#contact" class="btn-white">Prendre contact maintenant</a>
+    </div>
+</div>
+
+<footer>
+    <span>© 2025 Elyume — Tous droits réservés</span>
+    <div class="footer-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">CGV</a>
+        <a href="#">Contact</a>
+    </div>
+</footer>
+
+<script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
