@@ -11,6 +11,21 @@ const cards = [
   { icon: '🤝', title: 'Accompagnement humain',     desc: "Un conseiller dédié à vos côtés à chaque étape, disponible et à l'écoute de vos besoins." },
 ]
 
+const services = [
+  { icon: '📄', title: 'Déclaration de décès',       desc: 'Nous effectuons toutes les déclarations auprès des organismes concernés : mairie, sécurité sociale, caisses de retraite, mutuelles.' },
+  { icon: '🏦', title: 'Clôture de comptes',          desc: 'Fermeture des comptes bancaires, résiliation des abonnements, transfert des contrats en cours.' },
+  { icon: '🔎', title: 'Recherche d\'assurances vie',  desc: 'Identification de tous les contrats d\'assurance vie, prévoyance et garanties décès auxquels vous avez droit.' },
+  { icon: '📑', title: 'Constitution du dossier',      desc: 'Collecte et organisation de tous les documents nécessaires pour vos démarches successorales.' },
+  { icon: '🤝', title: 'Accompagnement notarial',      desc: 'Coordination avec le notaire pour faciliter le règlement de la succession.' },
+  { icon: '📞', title: 'Conseiller dédié',             desc: 'Un interlocuteur unique, disponible et à l\'écoute, qui vous accompagne du début à la fin.' },
+]
+
+const pricing = [
+  { name: 'Anticipation', subtitle: 'Préparer avant le décès', fixedLabel: 'Forfait fixe', fixedPrice: '390€', variableLabel: '+ 3% sur les fonds récupérés', desc: 'Anticipez les démarches pour protéger vos proches et maximiser la trésorerie transmise.', features: ['Audit patrimonial complet', 'Identification des contrats en cours', 'Constitution du dossier en amont', 'Conseiller dédié', 'Suivi par email et téléphone'], highlight: false },
+  { name: 'Accompagnement', subtitle: 'Après le décès', fixedLabel: 'Forfait fixe', fixedPrice: '590€', variableLabel: '+ 3% sur les fonds récupérés', desc: 'Prise en charge complète des démarches après le décès d\'un proche.', features: ['Déclaration de décès', 'Résiliation des abonnements et comptes', 'Recherche d\'assurances vie', 'Coordination notariale', 'Conseiller dédié prioritaire'], highlight: true },
+  { name: 'Sérénité', subtitle: 'Zéro frais fixe', fixedLabel: 'Aucun frais fixe', fixedPrice: '0€', variableLabel: '10% sur les fonds récupérés', desc: 'Aucun engagement initial — vous ne payez que sur les résultats obtenus.', features: ['Tout de l\'offre Accompagnement', 'Aucun frais à avancer', 'Paiement uniquement au résultat', 'Accompagnement juridique inclus', 'Interlocuteur disponible 7j/7'], highlight: false },
+]
+
 const testimonials = [
   { initials: 'ML', name: 'Marie L.',  location: 'Lyon, 2024',     text: "« Après le décès de mon père, je ne savais pas par où commencer. Eliume a tout pris en charge en quelques jours. Un soulagement immense dans une période si difficile. »" },
   { initials: 'TB', name: 'Thomas B.', location: 'Paris, 2024',    text: "« Grâce à Eliume, nous avons récupéré une assurance vie que nous ne savions même pas qu'elle existait. Le service est humain, à l'écoute et vraiment professionnel. »" },
@@ -102,6 +117,74 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SERVICES */}
+        <section id="services" style={{ background: '#f7f8fc', padding: '100px 48px' }}>
+          <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+            <span className="reveal" style={{ display: 'block', color: '#4f6ef7', fontSize: 12, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 20 }}>Nos services</span>
+            <h2 className="reveal" style={{ fontSize: 'clamp(30px,3.5vw,50px)', fontWeight: 800, letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 20, maxWidth: 680, transitionDelay: '.1s' }}>
+              Tout ce dont vous avez besoin, en un seul endroit
+            </h2>
+            <p className="reveal" style={{ fontSize: 18, color: '#6b7280', lineHeight: 1.7, maxWidth: 580, marginBottom: 60, transitionDelay: '.2s' }}>
+              De la première démarche à la clôture du dossier, nous prenons tout en charge pour que vous puissiez vous concentrer sur l&#39;essentiel.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }}>
+              {services.map((s, i) => (
+                <div key={s.title} className="reveal" style={{ background: '#fff', border: '1.5px solid rgba(0,0,0,.05)', borderRadius: 20, padding: 32, transitionDelay: `${(i+1)*.1}s` }}>
+                  <div style={{ width: 52, height: 52, borderRadius: 14, background: '#e8ecff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, marginBottom: 20 }}>{s.icon}</div>
+                  <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 10 }}>{s.title}</h3>
+                  <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.6 }}>{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PRICING */}
+        <section id="tarifs" style={{ maxWidth: 1200, margin: '0 auto', padding: '100px 48px' }}>
+          <span className="reveal" style={{ display: 'block', color: '#4f6ef7', fontSize: 12, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 20 }}>Tarifs</span>
+          <h2 className="reveal" style={{ fontSize: 'clamp(30px,3.5vw,50px)', fontWeight: 800, letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 20, maxWidth: 680, transitionDelay: '.1s' }}>
+            Des tarifs clairs, sans surprise
+          </h2>
+          <p className="reveal" style={{ fontSize: 18, color: '#6b7280', lineHeight: 1.7, maxWidth: 580, marginBottom: 60, transitionDelay: '.2s' }}>
+            Choisissez la formule adaptée à votre situation. Premier échange toujours gratuit et sans engagement.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, alignItems: 'start' }}>
+            {pricing.map((p, i) => (
+              <div key={p.name} className="reveal" style={{
+                background: p.highlight ? grad : '#f7f8fc',
+                border: p.highlight ? 'none' : '1.5px solid rgba(0,0,0,.05)',
+                borderRadius: 24, padding: 40, transitionDelay: `${(i+1)*.1}s`,
+                position: 'relative', overflow: 'hidden',
+              }}>
+                {p.highlight && <div style={{ position: 'absolute', top: 16, right: -28, background: '#fff', color: '#4f6ef7', fontSize: 11, fontWeight: 700, padding: '4px 36px', transform: 'rotate(45deg)', letterSpacing: .5 }}>Populaire</div>}
+                <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4, color: p.highlight ? '#fff' : '#0f1117' }}>{p.name}</h3>
+                <p style={{ fontSize: 13, color: p.highlight ? 'rgba(255,255,255,.6)' : '#9ca3af', marginBottom: 16, fontWeight: 500 }}>{p.subtitle}</p>
+                <p style={{ fontSize: 13, color: p.highlight ? 'rgba(255,255,255,.7)' : '#6b7280', marginBottom: 24, lineHeight: 1.5 }}>{p.desc}</p>
+                <div style={{ marginBottom: 8 }}>
+                  <span style={{ fontSize: 42, fontWeight: 800, color: p.highlight ? '#fff' : '#0f1117' }}>{p.fixedPrice}</span>
+                </div>
+                <p style={{ fontSize: 13, color: p.highlight ? 'rgba(255,255,255,.6)' : '#9ca3af', marginBottom: 4 }}>{p.fixedLabel}</p>
+                <p style={{ fontSize: 15, fontWeight: 600, color: p.highlight ? '#fff' : '#4f6ef7', marginBottom: 28 }}>{p.variableLabel}</p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px' }}>
+                  {p.features.map(f => (
+                    <li key={f} style={{ fontSize: 14, color: p.highlight ? 'rgba(255,255,255,.85)' : '#6b7280', padding: '6px 0', display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <span style={{ color: p.highlight ? '#fff' : '#4f6ef7', fontWeight: 700 }}>✓</span> {f}
+                    </li>
+                  ))}
+                </ul>
+                <a href="#contact" style={{
+                  display: 'block', textAlign: 'center', padding: '14px 0', borderRadius: 980, textDecoration: 'none', fontWeight: 600, fontSize: 14,
+                  background: p.highlight ? '#fff' : grad,
+                  color: p.highlight ? '#4f6ef7' : '#fff',
+                  boxShadow: p.highlight ? '0 4px 16px rgba(0,0,0,.1)' : '0 4px 16px rgba(79,110,247,.3)',
+                }}>
+                  Choisir cette formule
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* TESTIMONIALS */}
         <section id="temoignages" style={{ maxWidth: 1200, margin: '0 auto', padding: '100px 48px' }}>
           <span className="reveal" style={{ display: 'block', color: '#4f6ef7', fontSize: 12, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 20 }}>Témoignages</span>
@@ -133,6 +216,59 @@ export default function Home() {
             <a href="#contact" style={{ background: '#fff', color: '#4f6ef7', fontSize: 16, fontWeight: 700, padding: '16px 40px', borderRadius: 980, textDecoration: 'none', boxShadow: '0 8px 28px rgba(0,0,0,.15)', display: 'inline-block' }}>
               Prendre contact maintenant
             </a>
+          </div>
+        </section>
+
+        {/* CONTACT */}
+        <section id="contact" style={{ maxWidth: 1200, margin: '0 auto', padding: '100px 48px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60 }}>
+            <div>
+              <span className="reveal" style={{ display: 'block', color: '#4f6ef7', fontSize: 12, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 20 }}>Contact</span>
+              <h2 className="reveal" style={{ fontSize: 'clamp(30px,3.5vw,50px)', fontWeight: 800, letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 20, transitionDelay: '.1s' }}>
+                Parlons de votre situation
+              </h2>
+              <p className="reveal" style={{ fontSize: 18, color: '#6b7280', lineHeight: 1.7, marginBottom: 40, transitionDelay: '.2s' }}>
+                Remplissez le formulaire et nous vous rappelons sous 24h. L&#39;échange est gratuit et sans engagement.
+              </p>
+              <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: 20, transitionDelay: '.3s' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                  <div style={{ width: 44, height: 44, borderRadius: 12, background: '#e8ecff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>📞</div>
+                  <div>
+                    <div style={{ fontSize: 14, fontWeight: 700 }}>Téléphone</div>
+                    <div style={{ fontSize: 14, color: '#6b7280' }}>01 23 45 67 89</div>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                  <div style={{ width: 44, height: 44, borderRadius: 12, background: '#e8ecff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>✉️</div>
+                  <div>
+                    <div style={{ fontSize: 14, fontWeight: 700 }}>Email</div>
+                    <div style={{ fontSize: 14, color: '#6b7280' }}>contact@eliume.fr</div>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                  <div style={{ width: 44, height: 44, borderRadius: 12, background: '#e8ecff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>🕐</div>
+                  <div>
+                    <div style={{ fontSize: 14, fontWeight: 700 }}>Disponibilité</div>
+                    <div style={{ fontSize: 14, color: '#6b7280' }}>Lun–Ven, 9h–18h</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <form className="reveal" onSubmit={e => e.preventDefault()} style={{ background: '#f7f8fc', border: '1.5px solid rgba(0,0,0,.05)', borderRadius: 24, padding: 40, display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                <input type="text" placeholder="Prénom" required style={{ padding: '14px 16px', borderRadius: 12, border: '1.5px solid rgba(0,0,0,.08)', fontSize: 14, outline: 'none', background: '#fff' }} />
+                <input type="text" placeholder="Nom" required style={{ padding: '14px 16px', borderRadius: 12, border: '1.5px solid rgba(0,0,0,.08)', fontSize: 14, outline: 'none', background: '#fff' }} />
+              </div>
+              <input type="email" placeholder="Email" required style={{ padding: '14px 16px', borderRadius: 12, border: '1.5px solid rgba(0,0,0,.08)', fontSize: 14, outline: 'none', background: '#fff' }} />
+              <input type="tel" placeholder="Téléphone" style={{ padding: '14px 16px', borderRadius: 12, border: '1.5px solid rgba(0,0,0,.08)', fontSize: 14, outline: 'none', background: '#fff' }} />
+              <textarea placeholder="Décrivez brièvement votre situation..." rows={4} style={{ padding: '14px 16px', borderRadius: 12, border: '1.5px solid rgba(0,0,0,.08)', fontSize: 14, outline: 'none', resize: 'vertical', background: '#fff', fontFamily: 'inherit' }} />
+              <button type="submit" style={{ background: grad, color: '#fff', fontSize: 16, fontWeight: 600, padding: '16px 0', borderRadius: 980, border: 'none', cursor: 'pointer', boxShadow: '0 8px 28px rgba(79,110,247,.35)', marginTop: 8 }}>
+                Être rappelé gratuitement
+              </button>
+              <p style={{ fontSize: 12, color: '#9ca3af', textAlign: 'center', marginTop: 4 }}>
+                En soumettant ce formulaire, vous acceptez d&#39;être contacté par Eliume.
+              </p>
+            </form>
           </div>
         </section>
 
