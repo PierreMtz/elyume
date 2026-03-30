@@ -30,7 +30,7 @@ export default function Navbar() {
             transition: 'all .4s ease',
         }}>
             <Link href="/">
-                <Image src="/logo.png" alt="Eliume" width={100} height={44} style={{ objectFit: 'contain' }} priority />
+                <Image src="/logo.png" alt="Eliume" width={160} height={56} style={{ objectFit: 'contain' }} priority />
             </Link>
 
             <ul style={{ display: 'flex', gap: 36, listStyle: 'none', margin: 0, padding: 0 }}>

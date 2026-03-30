@@ -1,5 +1,6 @@
 'use client'
 import { useEffect } from 'react'
+import Image from 'next/image'
 import Navbar from '@/components/layout/Navbar'
 
 const grad = 'linear-gradient(135deg,#4f6ef7 0%,#a78bfa 100%)'
@@ -44,6 +45,8 @@ export default function Home() {
         {/* HERO */}
         <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '120px 48px 80px', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', top: -120, left: '50%', transform: 'translateX(-50%)', width: 900, height: 700, borderRadius: '50%', background: 'radial-gradient(ellipse at 50% 40%,rgba(79,110,247,.13) 0%,rgba(167,139,250,.08) 40%,transparent 70%)', pointerEvents: 'none' }} />
+
+          <Image src="/logo.png" alt="Eliume" width={280} height={120} style={{ objectFit: 'contain', marginBottom: 32 }} priority />
 
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#e8ecff', border: '1px solid rgba(79,110,247,.2)', color: '#4f6ef7', fontSize: 12, fontWeight: 600, letterSpacing: '.6px', textTransform: 'uppercase', padding: '6px 16px', borderRadius: 980, marginBottom: 32 }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4f6ef7', display: 'inline-block' }} />
