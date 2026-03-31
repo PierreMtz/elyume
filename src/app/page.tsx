@@ -176,66 +176,106 @@ export default function Home() {
         <section id="tarifs" style={{ maxWidth: 1200, margin: '0 auto', padding: '100px 48px', position: 'relative' }}>
           <span className="reveal" style={{ display: 'block', color: '#C83A28', fontSize: 12, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 20 }}>Tarifs</span>
           <h2 className="reveal" style={{ fontSize: 'clamp(30px,3.5vw,50px)', fontWeight: 800, letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 20, maxWidth: 680, transitionDelay: '.1s' }}>
-            Un tarif unique, <span style={{ color: '#C5A55A' }}>transparent</span>
+            Deux formules, <span style={{ color: '#C5A55A' }}>zéro surprise</span>
           </h2>
           <p className="reveal" style={{ fontSize: 18, color: '#6b7280', lineHeight: 1.7, maxWidth: 580, marginBottom: 60, transitionDelay: '.2s' }}>
             Premier échange toujours gratuit et sans engagement. Paiement en 3 fois disponible.
           </p>
 
-          <div style={{ maxWidth: 560, margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 28, alignItems: 'start' }}>
+            {/* ELIUME */}
             <div className="reveal" style={{
-              background: grad,
-              borderRadius: 32, padding: '56px 48px', textAlign: 'center',
-              position: 'relative', overflow: 'hidden',
-              boxShadow: '0 20px 60px rgba(200,58,40,.25)',
+              background: '#fff', borderRadius: 28, padding: '44px 36px',
+              border: '2px solid rgba(200,58,40,.12)', boxShadow: '0 8px 32px rgba(0,0,0,.06)',
+              transitionDelay: '.1s',
             }}>
-              {/* Decorative circles inside */}
-              <div style={{ position: 'absolute', top: -40, right: -40, width: 160, height: 160, borderRadius: '50%', background: 'rgba(255,255,255,.06)', pointerEvents: 'none' }} />
-              <div style={{ position: 'absolute', bottom: -30, left: -30, width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,.04)', pointerEvents: 'none' }} />
+              <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 4 }}>Eliume</h3>
+              <p style={{ fontSize: 13, color: '#6b7280', marginBottom: 24 }}>L&#39;essentiel pour traverser la crise</p>
 
-              <h3 style={{ fontSize: 24, fontWeight: 700, color: '#fff', marginBottom: 8 }}>Accompagnement complet</h3>
-              <p style={{ fontSize: 15, color: 'rgba(255,255,255,.7)', marginBottom: 32, lineHeight: 1.6 }}>
-                Prise en charge intégrale de toutes vos démarches après le décès d&#39;un proche. Recherche et récupération de tous les fonds auxquels vous avez droit.
-              </p>
-
-              <div style={{ marginBottom: 8 }}>
-                <span style={{ fontSize: 56, fontWeight: 800, color: '#fff', letterSpacing: -2 }}>800€</span>
+              <div style={{ marginBottom: 6 }}>
+                <span style={{ fontSize: 48, fontWeight: 800, color: '#C83A28', letterSpacing: -2 }}>800€</span>
               </div>
-              <p style={{ fontSize: 15, color: 'rgba(255,255,255,.7)', marginBottom: 8 }}>Tarif unique tout compris</p>
-
-              <div style={{ display: 'inline-block', background: 'rgba(255,255,255,.18)', borderRadius: 980, padding: '8px 20px', marginBottom: 32 }}>
-                <span style={{ fontSize: 14, fontWeight: 600, color: '#fff' }}>ou 266€ × 3 mois</span>
+              <p style={{ fontSize: 14, color: '#6b7280', marginBottom: 6 }}>Paiement immédiat</p>
+              <div style={{ display: 'inline-block', background: '#fdecea', borderRadius: 980, padding: '6px 16px', marginBottom: 28 }}>
+                <span style={{ fontSize: 13, fontWeight: 600, color: '#C83A28' }}>ou 266€ × 3 mois</span>
               </div>
 
-              <div style={{ background: 'rgba(255,255,255,.12)', borderRadius: 16, padding: '20px 24px', marginBottom: 32, textAlign: 'left' }}>
-                <p style={{ fontSize: 14, color: 'rgba(255,255,255,.85)', lineHeight: 1.7 }}>
-                  💡 L&#39;argent récolté tombe dès la première semaine. En payant en 3 fois, vous n&#39;avancez que 266€ : ce sont les fonds récupérés qui financent le reste.
-                </p>
-              </div>
-
-              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px', textAlign: 'left' }}>
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px' }}>
                 {[
-                  'Déclaration de décès complète',
-                  'Résiliation des abonnements et comptes',
-                  'Recherche d\'assurances vie et prévoyance',
-                  'Coordination avec le notaire',
-                  'Conseiller dédié prioritaire',
-                  'Constitution intégrale du dossier',
-                  'Suivi par email et téléphone',
+                  'Simplification de la situation de crise',
+                  'Analyse de 50 services (retraite, CAF, banques, assurances, prévoyance, épargne salariale…)',
+                  'Courriers prêts à envoyer en PDF',
+                  'Trame pour mise en relation',
+                  'Coordination notariale',
                 ].map(f => (
-                  <li key={f} style={{ fontSize: 15, color: 'rgba(255,255,255,.85)', padding: '7px 0', display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <span style={{ color: '#C5A55A', fontWeight: 700, fontSize: 16 }}>✓</span> {f}
+                  <li key={f} style={{ fontSize: 14, color: '#6b7280', padding: '7px 0', display: 'flex', alignItems: 'flex-start', gap: 10, lineHeight: 1.5 }}>
+                    <span style={{ color: '#C83A28', fontWeight: 700, fontSize: 15, flexShrink: 0, marginTop: 1 }}>✓</span> {f}
                   </li>
                 ))}
               </ul>
 
               <a href="#contact" style={{
-                display: 'block', textAlign: 'center', padding: '16px 0', borderRadius: 980, textDecoration: 'none', fontWeight: 700, fontSize: 16,
-                background: '#fff',
-                color: '#C83A28',
+                display: 'block', textAlign: 'center', padding: '14px 0', borderRadius: 980, textDecoration: 'none', fontWeight: 700, fontSize: 15,
+                background: grad, color: '#fff',
+                boxShadow: '0 4px 16px rgba(200,58,40,.25)',
+              }}>
+                Choisir Eliume
+              </a>
+            </div>
+
+            {/* ELIUME SÉRÉNITÉ */}
+            <div className="reveal" style={{
+              background: grad,
+              borderRadius: 28, padding: '44px 36px',
+              position: 'relative', overflow: 'hidden',
+              boxShadow: '0 20px 60px rgba(200,58,40,.25)',
+              transitionDelay: '.2s',
+            }}>
+              <div style={{ position: 'absolute', top: 16, right: -28, background: '#C5A55A', color: '#fff', fontSize: 11, fontWeight: 700, padding: '4px 36px', transform: 'rotate(45deg)', letterSpacing: .5 }}>Complet</div>
+              <div style={{ position: 'absolute', top: -40, right: -40, width: 160, height: 160, borderRadius: '50%', background: 'rgba(255,255,255,.06)', pointerEvents: 'none' }} />
+
+              <h3 style={{ fontSize: 22, fontWeight: 700, color: '#fff', marginBottom: 4 }}>Eliume Sérénité</h3>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,.6)', marginBottom: 24 }}>Accompagnement complet + suivi dans la durée</p>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 28 }}>
+                <div style={{ background: 'rgba(255,255,255,.12)', borderRadius: 14, padding: '14px 16px' }}>
+                  <div style={{ fontSize: 13, color: 'rgba(255,255,255,.6)', marginBottom: 2 }}>Option 1</div>
+                  <span style={{ fontSize: 24, fontWeight: 800, color: '#fff' }}>600€</span>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,.7)', marginLeft: 6 }}>+ 1,75% des fonds récoltés</span>
+                </div>
+                <div style={{ background: 'rgba(255,255,255,.12)', borderRadius: 14, padding: '14px 16px' }}>
+                  <div style={{ fontSize: 13, color: 'rgba(255,255,255,.6)', marginBottom: 2 }}>Option 2 — Paiement en 3×</div>
+                  <span style={{ fontSize: 24, fontWeight: 800, color: '#fff' }}>200€</span>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,.7)', marginLeft: 6 }}>× 3 mois + 1,75% des fonds</span>
+                </div>
+                <div style={{ background: 'rgba(255,255,255,.12)', borderRadius: 14, padding: '14px 16px' }}>
+                  <div style={{ fontSize: 13, color: 'rgba(255,255,255,.6)', marginBottom: 2 }}>Option 3 — Entrée minimale</div>
+                  <span style={{ fontSize: 24, fontWeight: 800, color: '#fff' }}>60€</span>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,.7)', marginLeft: 6 }}>+ 1,75% des fonds récoltés</span>
+                </div>
+              </div>
+
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px' }}>
+                {[
+                  'Tout ce qui est inclus dans Eliume',
+                  'Pension de réversion',
+                  'Vérification sur place',
+                  'Envoi de tous les documents',
+                  'Suivi et relances',
+                  'Tableau de bord pendant 2 ans + récapitulatif PDF',
+                ].map((f, i) => (
+                  <li key={f} style={{ fontSize: 14, color: 'rgba(255,255,255,.85)', padding: '7px 0', display: 'flex', alignItems: 'flex-start', gap: 10, lineHeight: 1.5, fontWeight: i === 0 ? 600 : 400 }}>
+                    <span style={{ color: '#C5A55A', fontWeight: 700, fontSize: 15, flexShrink: 0, marginTop: 1 }}>✓</span> {f}
+                  </li>
+                ))}
+              </ul>
+
+              <a href="#contact" style={{
+                display: 'block', textAlign: 'center', padding: '14px 0', borderRadius: 980, textDecoration: 'none', fontWeight: 700, fontSize: 15,
+                background: '#fff', color: '#C83A28',
                 boxShadow: '0 4px 16px rgba(0,0,0,.15)',
               }}>
-                Être rappelé gratuitement
+                Choisir Sérénité
               </a>
             </div>
           </div>
