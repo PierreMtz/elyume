@@ -70,7 +70,7 @@ export default function Home() {
           <div style={{ position: 'absolute', top: '5%', left: '-5%', width: 600, height: 750, backgroundImage: 'url(/feather-bg.svg)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', opacity: .7, pointerEvents: 'none', transform: 'rotate(-15deg)' }} />
           <div style={{ position: 'absolute', bottom: '-10%', right: '-8%', width: 500, height: 625, backgroundImage: 'url(/feather-bg.svg)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', opacity: .5, pointerEvents: 'none', transform: 'rotate(160deg)' }} />
 
-          <img src="/logo.png" alt="Eliume" width={280} height={120} style={{ objectFit: 'contain', marginBottom: 32 }} />
+          <img src="/logo.png" alt="Eliume" width={400} height={170} style={{ objectFit: 'contain', marginBottom: 32 }} />
 
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(139,170,145,.12)', border: `1px solid rgba(139,170,145,.25)`, color: sauge, fontSize: 12, fontWeight: 600, letterSpacing: '.6px', textTransform: 'uppercase', padding: '6px 16px', borderRadius: 980, marginBottom: 32 }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: sauge, display: 'inline-block' }} />
