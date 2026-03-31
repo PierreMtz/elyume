@@ -1,6 +1,6 @@
 'use client'
 import { useEffect } from 'react'
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
 import Navbar from '@/components/layout/Navbar'
 
 /* ── Charte Eliume ─────────────────────────────── */
@@ -70,7 +70,7 @@ export default function Home() {
           <div style={{ position: 'absolute', top: '5%', left: '-5%', width: 600, height: 750, backgroundImage: 'url(/feather-bg.svg)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', opacity: .7, pointerEvents: 'none', transform: 'rotate(-15deg)' }} />
           <div style={{ position: 'absolute', bottom: '-10%', right: '-8%', width: 500, height: 625, backgroundImage: 'url(/feather-bg.svg)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', opacity: .5, pointerEvents: 'none', transform: 'rotate(160deg)' }} />
 
-          <Image src="/logo.png" alt="Eliume" width={280} height={120} style={{ objectFit: 'contain', marginBottom: 32 }} priority />
+          <img src="/logo.png" alt="Eliume" width={280} height={120} style={{ objectFit: 'contain', marginBottom: 32 }} />
 
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(139,170,145,.12)', border: `1px solid rgba(139,170,145,.25)`, color: sauge, fontSize: 12, fontWeight: 600, letterSpacing: '.6px', textTransform: 'uppercase', padding: '6px 16px', borderRadius: 980, marginBottom: 32 }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: sauge, display: 'inline-block' }} />
@@ -381,7 +381,7 @@ export default function Home() {
         <footer style={{ background: txt, borderTop: `2px solid ${sauge}`, padding: '40px 48px', position: 'relative' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,.5)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-              <Image src="/logo.png" alt="Eliume" width={100} height={35} style={{ objectFit: 'contain', opacity: .7 }} />
+              <img src="/logo.png" alt="Eliume" width={140} height={50} style={{ objectFit: 'contain', opacity: .8 }} />
               <span>© 2025 Eliume — Tous droits réservés</span>
             </div>
             <div style={{ display: 'flex', gap: 24 }}>

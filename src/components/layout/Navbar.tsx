@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
 
 const links = [
     { label: 'Notre mission', href: '#apropos' },
@@ -31,7 +31,7 @@ export default function Navbar() {
             transition: 'all .4s ease',
         }}>
             <Link href="/">
-                <Image src="/logo.png" alt="Eliume" width={160} height={56} style={{ objectFit: 'contain' }} priority />
+                <img src="/logo.png" alt="Eliume" width={160} height={56} style={{ objectFit: 'contain' }} />
             </Link>
 
             <ul style={{ display: 'flex', gap: 36, listStyle: 'none', margin: 0, padding: 0 }}>
