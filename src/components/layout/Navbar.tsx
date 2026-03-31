@@ -42,14 +42,19 @@ export default function Navbar() {
                 ))}
             </ul>
 
-            <a href="#contact" style={{
-                background: '#CE6F63',
-                color: '#fff', fontSize: 13, fontWeight: 600,
-                padding: '10px 22px', borderRadius: 980, textDecoration: 'none',
-                boxShadow: '0 4px 16px rgba(206,111,99,0.3)',
-            }}>
-                Être rappelé gratuitement
-            </a>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                <Link href="/connexion" style={{ color: '#333', fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>
+                    Connexion
+                </Link>
+                <a href="#contact" style={{
+                    background: '#CE6F63',
+                    color: '#fff', fontSize: 13, fontWeight: 600,
+                    padding: '10px 22px', borderRadius: 980, textDecoration: 'none',
+                    boxShadow: '0 4px 16px rgba(206,111,99,0.3)',
+                }}>
+                    Être rappelé gratuitement
+                </a>
+            </div>
         </nav>
     )
 }
