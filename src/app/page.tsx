@@ -381,7 +381,7 @@ export default function Home() {
         <footer style={{ background: txt, borderTop: `2px solid ${sauge}`, padding: '40px 48px', position: 'relative' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,.5)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-              <img src="/logo.png" alt="Eliume" width={140} height={50} style={{ objectFit: 'contain', opacity: .8 }} />
+              <img src="/logo.png" alt="Eliume" width={180} height={64} style={{ objectFit: 'contain', opacity: .85 }} />
               <span>© 2025 Eliume — Tous droits réservés</span>
             </div>
             <div style={{ display: 'flex', gap: 24 }}>
