@@ -27,7 +27,7 @@ export default function Navbar() {
             background: scrolled ? 'rgba(255,255,255,0.88)' : 'transparent',
             backdropFilter: scrolled ? 'blur(20px)' : 'none',
             borderBottom: scrolled ? '1px solid rgba(0,0,0,0.06)' : '1px solid transparent',
-            boxShadow: scrolled ? '0 1px 24px rgba(79,110,247,0.07)' : 'none',
+            boxShadow: scrolled ? '0 1px 24px rgba(200,58,40,0.07)' : 'none',
             transition: 'all .4s ease',
         }}>
             <Link href="/">
@@ -43,10 +43,10 @@ export default function Navbar() {
             </ul>
 
             <a href="#contact" style={{
-                background: 'linear-gradient(135deg,#4f6ef7,#a78bfa)',
+                background: 'linear-gradient(135deg,#C83A28,#C5A55A)',
                 color: '#fff', fontSize: 13, fontWeight: 600,
                 padding: '10px 22px', borderRadius: 980, textDecoration: 'none',
-                boxShadow: '0 4px 16px rgba(79,110,247,0.3)',
+                boxShadow: '0 4px 16px rgba(200,58,40,0.3)',
             }}>
                 Être rappelé gratuitement
             </a>
